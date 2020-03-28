@@ -95,9 +95,6 @@ def main():
     localUrl = protocol+"localhost:8080"
     centralizedUrl = protocol+"backend.settraces.com"
 
-    local = False
-    centralized = False
-
     if args[1] == "help":
         getHelp()
         sys.exit(1)
@@ -134,3 +131,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    #handler = RESTHandler("http://localhost:8080")
+    #uploadParsed(handler, 'eaf8bbc4-ba82-45bc-bbaa-8eb88c0d2f27', '00a27082-f7ea-4e15-9f6d-1ee373543f3a')

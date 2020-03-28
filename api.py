@@ -37,6 +37,34 @@ def createNewScriptType(handler, id):
     res = handler.post('/project/%s/type/' % id, {'name':name})
     return res.json()['id']
 
+def doCreateScript(handler, pid, stid, name, description):
+    ud = {
+        'name':name,
+        'description':description,
+        'typeId':stid
+    }
+    res = handler.post('/project/%s/script/' % pid, ud)
+    return res.json()['id']
+
+def doCreateLine(handler, pid, scriptId, t, text, roleId):
+    ud = {
+        'type': t,
+        'text':text,
+        'roleId':roleId
+    }
+    res = handler.post('/project/%s/script/%s/line/' % (pid, scriptId), ud)
+    if res.ok return 1
+    return 0
+
+def doCreateRole(handler, pid, scriptId, role, desc):
+    ud = {
+        'role': role, 
+        'description':desc
+    }
+    res = handler.post('/project/%s/script/%s/role/' % (pid, scriptId), ud)
+    #return res.json()['id']
+    j = res.json()
+    return [j['role'], j['id']]
     
 def createScript(name, desc, typeId):
     pass
