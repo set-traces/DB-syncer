@@ -53,7 +53,7 @@ def doCreateLine(handler, pid, scriptId, t, text, roleId):
         'roleId':roleId
     }
     res = handler.post('/project/%s/script/%s/line/' % (pid, scriptId), ud)
-    if res.ok return 1
+    if res.ok: return 1
     return 0
 
 def doCreateRole(handler, pid, scriptId, role, desc):
