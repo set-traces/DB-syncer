@@ -44,6 +44,7 @@ def doCreateScript(handler, pid, stid, name, description):
         'typeId':stid
     }
     res = handler.post('/project/%s/script/' % pid, ud)
+    print(res.text)
     return res.json()['id']
 
 def doCreateLine(handler, pid, scriptId, t, text, roleId):
